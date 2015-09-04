@@ -6,12 +6,11 @@ var Task = require('./Task');
 var List = React.createClass({
   render: function() {
     return (
-      <div>
-        This should be a list
-        <Task />
-        <Task />
-        <Task />
-      </div>
+      <ul>
+        {this.props.tasks.map(function(task){
+          return <Task>{task}</Task>;
+        })}
+      </ul>
     );
   }
 });

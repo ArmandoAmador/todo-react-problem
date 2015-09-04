@@ -29026,15 +29026,18 @@ module.exports = require('./lib/React');
 var React = require('react');
 var Form = require('./components/Form');
 var List = require("./components/List");
-
+var Task = require("./components/Task");
 
 var App = React.createClass({displayName: "App",
+  getInitialState: function() {
+    return {tasks: ['Task1', 'Task2', 'Task3']};
+  },
   render: function() {
     return (
       React.createElement("div", null, 
         React.createElement("h2", null, "TODO"), 
         React.createElement(Form, null), 
-        React.createElement(List, null)
+        React.createElement(List, {tasks: this.state.tasks})
       )
     );
   }
@@ -29042,7 +29045,7 @@ var App = React.createClass({displayName: "App",
 
 module.exports = App;
 
-},{"./components/Form":159,"./components/List":160,"react":157}],159:[function(require,module,exports){
+},{"./components/Form":159,"./components/List":160,"./components/Task":161,"react":157}],159:[function(require,module,exports){
 "use strict";
 
 var React = require('react');
@@ -29063,12 +29066,15 @@ module.exports = Form;
 "use strict";
 
 var React = require('react');
+var Task = require('./Task');
 
 var List = React.createClass({displayName: "List",
   render: function() {
     return (
-      React.createElement("div", null, 
-        "I should be a list of tasks"
+      React.createElement("ul", null, 
+        this.props.tasks.map(function(task){
+          return React.createElement(Task, null, task);
+        })
       )
     );
   }
@@ -29076,11 +29082,26 @@ var List = React.createClass({displayName: "List",
 
 module.exports = List;
 
-},{"react":157}],161:[function(require,module,exports){
+},{"./Task":161,"react":157}],161:[function(require,module,exports){
+"use strict";
+
+var React = require('react');
+
+var Task = React.createClass({displayName: "Task",
+  render: function() {
+    return (
+      React.createElement("li", null, this.props.children)
+    );
+  }
+});
+
+module.exports = Task;
+
+},{"react":157}],162:[function(require,module,exports){
 $ = jQuery = require('jquery');
 var React = require('react');
 var App = require('./app');
 
 
 React.render( React.createElement(App, null), document.getElementById('app'));
-},{"./app":158,"jquery":2,"react":157}]},{},[161]);
+},{"./app":158,"jquery":2,"react":157}]},{},[162]);

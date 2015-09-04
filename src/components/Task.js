@@ -5,9 +5,7 @@ var React = require('react');
 var Task = React.createClass({
   render: function() {
     return (
-      <div>
-        <li>I should be a task item</li>
-      </div>
+      <li>{this.props.children}</li>
     );
   }
 });
