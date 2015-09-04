@@ -1,12 +1,16 @@
 "use strict";
 
 var React = require('react');
+var Task = require('./Task');
 
 var List = React.createClass({
   render: function() {
     return (
       <div>
-        I should be a list of tasks
+        This should be a list
+        <Task />
+        <Task />
+        <Task />
       </div>
     );
   }
