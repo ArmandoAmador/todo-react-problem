@@ -7,13 +7,18 @@ var Task = require("./components/Task");
 
 var App = React.createClass({
   getInitialState: function() {
-    return {tasks: ['Task1', 'Task2', 'Task3']};
+    return {tasks: []};
   },
+
+  updateTasks: function(newTask) {
+    this.setState({tasks: this.state.tasks.concat([newTask])});
+  },
+
   render: function() {
     return (
       <div>
         <h2>TODO</h2>
-        <Form />
+        <Form onFormSubmit={this.updateTasks} />
         <List tasks={this.state.tasks}/>
       </div>
     );

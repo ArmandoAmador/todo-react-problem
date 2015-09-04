@@ -29030,13 +29030,18 @@ var Task = require("./components/Task");
 
 var App = React.createClass({displayName: "App",
   getInitialState: function() {
-    return {tasks: ['Task1', 'Task2', 'Task3']};
+    return {tasks: []};
   },
+
+  updateTasks: function(newTask) {
+    this.setState({tasks: this.state.tasks.concat([newTask])});
+  },
+
   render: function() {
     return (
       React.createElement("div", null, 
         React.createElement("h2", null, "TODO"), 
-        React.createElement(Form, null), 
+        React.createElement(Form, {onFormSubmit: this.updateTasks}), 
         React.createElement(List, {tasks: this.state.tasks})
       )
     );
@@ -29051,10 +29056,25 @@ module.exports = App;
 var React = require('react');
 
 var Form = React.createClass({displayName: "Form",
+  getInitialState: function() {
+    return {task: ''};
+  },
+
+  handleSubmit: function(event) {
+    event.preventDefault();
+    this.props.onFormSubmit(this.state.task);
+    this.setState({task: ''});
+    return;
+  },
+
+  onChange: function(event){
+    this.setState({task: event.target.value});
+  },
+
   render: function() {
     return (
-      React.createElement("form", null, 
-        React.createElement("input", {type: "text", ref: "task"}), 
+      React.createElement("form", {onSubmit: this.handleSubmit}, 
+        React.createElement("input", {type: "text", ref: "task", onChange: this.onChange, value: this.state.task}), 
         React.createElement("input", {type: "submit", value: "Add Task"})
       )
     );
