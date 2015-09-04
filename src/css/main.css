@@ -1,0 +1,43 @@
+body {
+  margin-top: 40px;
+  background: #485b6e;
+  color: #fff;
+  font-family: Helvetica;
+  font-weight: bold;
+  text-align:center;
+}
+
+h1 {
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: #f1f1f1;
+}
+
+.todo-app {
+  width: 60%;
+  margin: 0 auto;
+}
+
+.todo-app .btn-custom {
+  margin-top: 20px;
+  color: #fff;
+  background: #ed4e6e;
+  font-size: 1em;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.todo-app .btn-custom:hover {
+  background: #2c3e52;
+}
+
+.todo-list {
+  margin-top: 40px;
+}
+
+.todo-list li{
+  background-color: #eee;
+  border-bottom: 1px solid black;
+  padding: 20px;
+  color: #555;
+}

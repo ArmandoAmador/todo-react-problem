@@ -6,7 +6,7 @@ var Task = require('./Task');
 var List = React.createClass({
   render: function() {
     return (
-      <ul>
+      <ul className="list-unstyled todo-list">
         {this.props.tasks.map(function(task){
           return <Task>{task}</Task>;
         })}

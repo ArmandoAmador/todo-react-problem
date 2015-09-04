@@ -29039,8 +29039,8 @@ var App = React.createClass({displayName: "App",
 
   render: function() {
     return (
-      React.createElement("div", null, 
-        React.createElement("h2", null, "TODO"), 
+      React.createElement("div", {className: "todo-app"}, 
+        React.createElement("h1", null, "TODO LIST"), 
         React.createElement(Form, {onFormSubmit: this.updateTasks}), 
         React.createElement(List, {tasks: this.state.tasks})
       )
@@ -29073,9 +29073,11 @@ var Form = React.createClass({displayName: "Form",
 
   render: function() {
     return (
-      React.createElement("form", {onSubmit: this.handleSubmit}, 
-        React.createElement("input", {type: "text", ref: "task", onChange: this.onChange, value: this.state.task}), 
-        React.createElement("input", {type: "submit", value: "Add Task"})
+      React.createElement("div", {className: "todo-form"}, 
+        React.createElement("form", {className: "field", onSubmit: this.handleSubmit}, 
+          React.createElement("input", {type: "text", ref: "task", className: "form-control", onChange: this.onChange, value: this.state.task}), 
+          React.createElement("input", {type: "submit", value: "Add Task", className: "btn btn-custom"})
+        )
       )
     );
   }
@@ -29092,7 +29094,7 @@ var Task = require('./Task');
 var List = React.createClass({displayName: "List",
   render: function() {
     return (
-      React.createElement("ul", null, 
+      React.createElement("ul", {className: "list-unstyled todo-list"}, 
         this.props.tasks.map(function(task){
           return React.createElement(Task, null, task);
         })

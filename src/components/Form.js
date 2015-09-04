@@ -20,10 +20,12 @@ var Form = React.createClass({
 
   render: function() {
     return (
-      <form onSubmit={this.handleSubmit}>
-        <input type='text' ref='task' onChange={this.onChange} value={this.state.task} />
-        <input type='submit' value='Add Task'/>
-      </form>
+      <div className="todo-form">
+        <form className="field" onSubmit={this.handleSubmit}>
+          <input type='text' ref='task' className="form-control" onChange={this.onChange} value={this.state.task} />
+          <input type='submit' value='Add Task' className="btn btn-custom"/>
+        </form>
+      </div>
     );
   }
 });

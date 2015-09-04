@@ -16,8 +16,8 @@ var App = React.createClass({
 
   render: function() {
     return (
-      <div>
-        <h2>TODO</h2>
+      <div className="todo-app">
+        <h1>TODO LIST</h1>
         <Form onFormSubmit={this.updateTasks} />
         <List tasks={this.state.tasks}/>
       </div>
