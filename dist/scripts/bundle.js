@@ -29025,51 +29025,25 @@ module.exports = require('./lib/React');
 
 var React = require('react');
 
-var Todo = React.createClass({displayName: "Todo",
-  getInitialState: function() {
-    return { todo: ["hello"] };
-  },
-
-  handleChange: function(event) {
-     this.setState({value: event.target.value});
-  },
-
-  handleSubmit: function(event) {
-    event.preventDefault();
-    console.log(this.state.value);
-    this.state.todo.push(this.state.value);
-    console.log(this.state.todo);
-  },
-
+var App = React.createClass({displayName: "App",
   render: function() {
-    var value = this.state.value;
-
     return (
-     React.createElement("div", null, 
-       React.createElement("ul", null, 
-        this.state.todo.map(function(item){
-          return React.createElement("li", null, item);
-        })
-       ), 
-       React.createElement("form", {onSubmit: this.handleSubmit}, 
-         React.createElement("p", null, "Task"), 
-         React.createElement("input", {type: "text", value: value, onChange: this.handleChange}), 
-         React.createElement("input", {type: "submit", value: "Post"})
-       )
-     )
-   );
+      React.createElement("div", null, 
+        React.createElement("h2", null, "TODO"), 
+        React.createElement("p", null, "I should be a form"), 
+        React.createElement("p", null, "I should be a list of tasks")
+      )
+    );
   }
 });
-module.exports = Todo;
+
+module.exports = App;
 
 },{"react":157}],159:[function(require,module,exports){
 $ = jQuery = require('jquery');
-
-var App = console.log('Hello world from Browserify');
 var React = require('react');
-var Todo = require('./components/Todo');
+var App = require('./app');
 
-React.render(React.createElement(Todo, null), document.getElementById('app'));
 
-module.exports = App;
-},{"./components/Todo":158,"jquery":2,"react":157}]},{},[159]);
+React.render( React.createElement(App, null), document.getElementById('app'));
+},{"./app":158,"jquery":2,"react":157}]},{},[159]);

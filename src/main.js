@@ -1,4 +1,8 @@
 $ = jQuery = require('jquery');
 var React = require('react');
-var Todo = require('./components/Todo');
-React.render(<Todo/>, document.getElementById('app'));
+var App = require('./app');
+
+
+React.render( <App />, document.getElementById('app'));
+
+
