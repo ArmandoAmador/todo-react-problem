@@ -29053,8 +29053,9 @@ var React = require('react');
 var Form = React.createClass({displayName: "Form",
   render: function() {
     return (
-      React.createElement("div", null, 
-        React.createElement("p", null, "I should be a form")
+      React.createElement("form", null, 
+        React.createElement("input", {type: "text", ref: "task"}), 
+        React.createElement("input", {type: "submit", value: "Add Task"})
       )
     );
   }

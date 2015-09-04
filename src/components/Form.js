@@ -5,9 +5,10 @@ var React = require('react');
 var Form = React.createClass({
   render: function() {
     return (
-      <div>
-        <p>I should be a form</p>
-      </div>
+      <form>
+        <input type='text' ref='task' />
+        <input type='submit' value='Add Task'/>
+      </form>
     );
   }
 });
