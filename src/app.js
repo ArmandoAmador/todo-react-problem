@@ -10,8 +10,8 @@ var App = React.createClass({
     return (
       <div>
         <h2>TODO</h2>
-        <p>I should be a form</p>
-        <p>I should be a list of tasks</p>
+        <Form />
+        <List />
       </div>
     );
   }

@@ -29024,14 +29024,17 @@ module.exports = require('./lib/React');
 "use strict";
 
 var React = require('react');
+var Form = require('./components/Form');
+var List = require("./components/List");
+
 
 var App = React.createClass({displayName: "App",
   render: function() {
     return (
       React.createElement("div", null, 
         React.createElement("h2", null, "TODO"), 
-        React.createElement("p", null, "I should be a form"), 
-        React.createElement("p", null, "I should be a list of tasks")
+        React.createElement(Form, null), 
+        React.createElement(List, null)
       )
     );
   }
@@ -29039,11 +29042,45 @@ var App = React.createClass({displayName: "App",
 
 module.exports = App;
 
-},{"react":157}],159:[function(require,module,exports){
+},{"./components/Form":159,"./components/List":160,"react":157}],159:[function(require,module,exports){
+"use strict";
+
+var React = require('react');
+
+var Form = React.createClass({displayName: "Form",
+  render: function() {
+    return (
+      React.createElement("div", null, 
+        React.createElement("p", null, "I should be a form")
+      )
+    );
+  }
+});
+
+module.exports = Form;
+
+},{"react":157}],160:[function(require,module,exports){
+"use strict";
+
+var React = require('react');
+
+var List = React.createClass({displayName: "List",
+  render: function() {
+    return (
+      React.createElement("div", null, 
+        "I should be a list of tasks"
+      )
+    );
+  }
+});
+
+module.exports = List;
+
+},{"react":157}],161:[function(require,module,exports){
 $ = jQuery = require('jquery');
 var React = require('react');
 var App = require('./app');
 
 
 React.render( React.createElement(App, null), document.getElementById('app'));
-},{"./app":158,"jquery":2,"react":157}]},{},[159]);
+},{"./app":158,"jquery":2,"react":157}]},{},[161]);
